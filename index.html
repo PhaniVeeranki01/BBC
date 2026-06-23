@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Beyond BloomCrafts creates handcrafted fresh flower garlands for weddings and celebrations across the USA.">
+  <title>Beyond BloomCrafts | Garlands for Every Celebration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="announcement">
+    <p>Freshly handcrafted &middot; Nationwide celebration delivery</p>
+    <button class="announcement__close" aria-label="Close announcement">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Beyond BloomCrafts home">
+      <img class="brand__logo" src="assets/beyond-bloomcrafts-floral-mark-with-ornament.png" alt="">
+      <span class="brand__name">Beyond BloomCrafts</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#shop">Shop</a>
+      <a href="#occasions">Occasions</a>
+      <a href="#custom">Custom Orders</a>
+      <a href="#story">Our Story</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-button search-trigger" aria-label="Search">
+        <i data-lucide="search"></i>
+      </button>
+      <button class="icon-button favorites-trigger" aria-label="View favorites">
+        <i data-lucide="heart"></i>
+        <span class="action-count favorite-count" hidden>0</span>
+      </button>
+      <button class="icon-button cart-trigger" aria-label="Open cart">
+        <i data-lucide="shopping-bag"></i>
+        <span class="action-count cart-count" hidden>0</span>
+      </button>
+      <button class="icon-button menu-trigger" aria-label="Open menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-heading">
+      <img class="hero__image" src="assets/hero-wedding.png" alt="Fresh jasmine and rose garland at an elegant wedding ceremony">
+      <div class="hero__veil"></div>
+
+      <div class="hero__content">
+        <p class="eyebrow">Made by hand, tied with meaning</p>
+        <h1 id="hero-heading">Garlands for<br>life's beautiful moments.</h1>
+        <p class="hero__copy">Fresh, fragrant, and thoughtfully handcrafted for weddings, milestones, and every gathering worth remembering.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#shop">Shop garlands <i data-lucide="arrow-right"></i></a>
+          <button class="text-link planner-trigger">Plan a custom order <i data-lucide="arrow-up-right"></i></button>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#occasions" aria-label="Explore occasions">
+        <span>Explore</span>
+        <i data-lucide="arrow-down"></i>
+      </a>
+    </section>
+
+    <section class="service-strip" aria-label="Our service promises">
+      <div><i data-lucide="flower-2"></i><span><strong>Farm-fresh flowers</strong><small>Sourced for every order</small></span></div>
+      <div><i data-lucide="hand-heart"></i><span><strong>Handcrafted in the USA</strong><small>Made with patience and care</small></span></div>
+      <div><i data-lucide="calendar-check"></i><span><strong>Event-date delivery</strong><small>Timed for peak freshness</small></span></div>
+      <div><i data-lucide="message-circle-heart"></i><span><strong>Personal guidance</strong><small>Real florists, happy to help</small></span></div>
+    </section>
+
+    <section class="occasions section-shell" id="occasions">
+      <div class="section-heading">
+        <p class="eyebrow">Find your flowers</p>
+        <h2>Made for every kind of joy.</h2>
+        <p>From the vows to the welcome home, choose a garland designed for the way you celebrate.</p>
+      </div>
+
+      <div class="occasion-grid">
+        <button class="occasion-card filter-jump" data-filter="Wedding">
+          <img src="assets/wedding-garland.png" alt="Red rose and jasmine wedding garland">
+          <span class="occasion-card__overlay"></span>
+          <span class="occasion-card__label"><strong>Weddings</strong><small>Jaimala &amp; ceremony flowers</small></span>
+          <span class="occasion-card__arrow"><i data-lucide="arrow-up-right"></i></span>
+        </button>
+        <button class="occasion-card filter-jump" data-filter="Celebration">
+          <img src="assets/marigold-garland.png" alt="Orange and yellow marigold celebration garland">
+          <span class="occasion-card__overlay"></span>
+          <span class="occasion-card__label"><strong>Celebrations</strong><small>Birthdays, showers &amp; more</small></span>
+          <span class="occasion-card__arrow"><i data-lucide="arrow-up-right"></i></span>
+        </button>
+        <button class="occasion-card filter-jump" data-filter="Welcome">
+          <img src="assets/blush-garland.png" alt="Blush pink and cream flower garland">
+          <span class="occasion-card__overlay"></span>
+          <span class="occasion-card__label"><strong>Welcome &amp; Honor</strong><small>Warm gestures, beautifully made</small></span>
+          <span class="occasion-card__arrow"><i data-lucide="arrow-up-right"></i></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="shop-inner">
+        <div class="section-heading section-heading--left">
+          <p class="eyebrow">The flower room</p>
+          <h2>Fresh favorites.</h2>
+          <p>Each piece is made to order, with natural variation that makes it entirely yours.</p>
+        </div>
+
+        <div class="shop-toolbar">
+          <div class="filter-tabs" role="group" aria-label="Filter products">
+            <button class="filter-tab active" data-filter="All">All</button>
+            <button class="filter-tab" data-filter="Wedding">Wedding</button>
+            <button class="filter-tab" data-filter="Celebration">Celebration</button>
+            <button class="filter-tab" data-filter="Welcome">Welcome</button>
+          </div>
+          <span class="product-total">8 arrangements</span>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card" data-category="Wedding" data-name="Rani Rose Jaimala">
+            <div class="product-card__media">
+              <img src="assets/wedding-garland.png" alt="Rani Rose Jaimala">
+              <span class="product-badge">Bestseller</span>
+              <button class="favorite-button" aria-label="Add Rani Rose Jaimala to favorites" aria-pressed="false"><i data-lucide="heart"></i></button>
+              <button class="quick-add" data-product="Rani Rose Jaimala" data-price="189" data-image="assets/wedding-garland.png">Quick add <i data-lucide="plus"></i></button>
+            </div>
+            <div class="product-card__info">
+              <div><p class="product-type">Wedding &middot; Pair</p><h3>Rani Rose Jaimala</h3></div>
+              <span class="price">$189</span>
+            </div>
+            <div class="swatches" aria-label="Available colors"><span class="swatch swatch--red"></span><span class="swatch swatch--white"></span><span>2 palettes</span></div>
+          </article>
+
+          <article class="product-card" data-category="Wedding" data-name="Ivory Jasmine Varmala">
+            <div class="product-card__media product-card__media--ivory">
+              <img src="assets/wedding-garland.png" alt="Ivory Jasmine Varmala">
+              <button class="favorite-button" aria-label="Add Ivory Jasmine Varmala to favorites" aria-pressed="false"><i data-lucide="heart"></i></button>
+              <button class="quick-add" data-product="Ivory Jasmine Varmala" data-price="165" data-image="assets/wedding-garland.png">Quick add <i data-lucide="plus"></i></button>
+            </div>
+            <div class="product-card__info">
+              <div><p class="product-type">Wedding &middot; Pair</p><h3>Ivory Jasmine Varmala</h3></div>
+              <span class="price">$165</span>
+            </div>
+            <div class="swatches" aria-label="Available colors"><span class="swatch swatch--white"></span><span class="swatch swatch--blush"></span><span>2 palettes</span></div>
+          </article>
+
+          <article class="product-card" data-category="Wedding" data-name="Pink Rose Baby's Breath Garland">
+            <div class="product-card__media product-card__media--photo">
+              <img src="assets/social-post-pink-rose-baby-breath.png" alt="Pink rose and baby's breath hanging garland">
+              <span class="product-badge product-badge--new">Custom</span>
+              <button class="favorite-button" aria-label="Add Pink Rose Baby's Breath Garland to favorites" aria-pressed="false"><i data-lucide="heart"></i></button>
+              <button class="product-quote planner-trigger">Request quote <i data-lucide="arrow-right"></i></button>
+            </div>
+            <div class="product-card__info">
+              <div><p class="product-type">Wedding &middot; Single</p><h3>Pink Rose Baby's Breath Garland</h3></div>
+              <span class="price">Custom</span>
+            </div>
+            <div class="swatches" aria-label="Available colors"><span class="swatch swatch--blush"></span><span class="swatch swatch--white"></span><span>Fresh roses</span></div>
+          </article>
+
+          <article class="product-card" data-category="Wedding" data-name="Blush Rose Hanging Mala">
+            <div class="product-card__media product-card__media--photo">
+              <img src="assets/social-post-pink-rose-hanging.png" alt="Blush rose hanging mala with white flowers">
+              <span class="product-badge product-badge--new">Custom</span>
+              <button class="favorite-button" aria-label="Add Blush Rose Hanging Mala to favorites" aria-pressed="false"><i data-lucide="heart"></i></button>
+              <button class="product-quote planner-trigger">Request quote <i data-lucide="arrow-right"></i></button>
+            </div>
+            <div class="product-card__info">
+              <div><p class="product-type">Wedding &middot; Single</p><h3>Blush Rose Hanging Mala</h3></div>
+              <span class="price">Custom</span>
+            </div>
+            <div class="swatches" aria-label="Available colors"><span class="swatch swatch--blush"></span><span class="swatch swatch--white"></span><span>Made to order</span></div>
+          </article>
+          <article class="product-card" data-category="Celebration" data-name="Saffron Marigold Mala">
+            <div class="product-card__media">
+              <img src="assets/marigold-garland.png" alt="Saffron Marigold Mala">
+              <span class="product-badge product-badge--new">New</span>
+              <button class="favorite-button" aria-label="Add Saffron Marigold Mala to favorites" aria-pressed="false"><i data-lucide="heart"></i></button>
+              <button class="quick-add" data-product="Saffron Marigold Mala" data-price="78" data-image="assets/marigold-garland.png">Quick add <i data-lucide="plus"></i></button>
+            </div>
+            <div class="product-card__info">
+              <div><p class="product-type">Celebration &middot; Single</p><h3>Saffron Marigold Mala</h3></div>
+              <span class="price">$78</span>
+            </div>
+            <div class="swatches" aria-label="Available colors"><span class="swatch swatch--orange"></span><span class="swatch swatch--yellow"></span><span>2 palettes</span></div>
+          </article>
+
+          <article class="product-card" data-category="Celebration" data-name="Mango Leaf Toran">
+            <div class="product-card__media product-card__media--green">
+              <img src="assets/marigold-garland.png" alt="Mango Leaf Toran">
+              <button class="favorite-button" aria-label="Add Mango Leaf Toran to favorites" aria-pressed="false"><i data-lucide="heart"></i></button>
+              <button class="quick-add" data-product="Mango Leaf Toran" data-price="96" data-image="assets/marigold-garland.png">Quick add <i data-lucide="plus"></i></button>
+            </div>
+            <div class="product-card__info">
+              <div><p class="product-type">Celebration &middot; Doorway</p><h3>Mango Leaf Toran</h3></div>
+              <span class="price">$96</span>
+            </div>
+            <div class="swatches" aria-label="Available colors"><span class="swatch swatch--green"></span><span class="swatch swatch--yellow"></span><span>2 palettes</span></div>
+          </article>
+
+          <article class="product-card" data-category="Welcome" data-name="Blush Welcome Mala">
+            <div class="product-card__media">
+              <img src="assets/blush-garland.png" alt="Blush Welcome Mala">
+              <button class="favorite-button" aria-label="Add Blush Welcome Mala to favorites" aria-pressed="false"><i data-lucide="heart"></i></button>
+              <button class="quick-add" data-product="Blush Welcome Mala" data-price="88" data-image="assets/blush-garland.png">Quick add <i data-lucide="plus"></i></button>
+            </div>
+            <div class="product-card__info">
+              <div><p class="product-type">Welcome &middot; Single</p><h3>Blush Welcome Mala</h3></div>
+              <span class="price">$88</span>
+            </div>
+            <div class="swatches" aria-label="Available colors"><span class="swatch swatch--blush"></span><span class="swatch swatch--sage"></span><span>2 palettes</span></div>
+          </article>
+
+          <article class="product-card" data-category="Welcome" data-name="Eucalyptus Honor Garland">
+            <div class="product-card__media product-card__media--sage">
+              <img src="assets/blush-garland.png" alt="Eucalyptus Honor Garland">
+              <button class="favorite-button" aria-label="Add Eucalyptus Honor Garland to favorites" aria-pressed="false"><i data-lucide="heart"></i></button>
+              <button class="quick-add" data-product="Eucalyptus Honor Garland" data-price="92" data-image="assets/blush-garland.png">Quick add <i data-lucide="plus"></i></button>
+            </div>
+            <div class="product-card__info">
+              <div><p class="product-type">Welcome &middot; Single</p><h3>Eucalyptus Honor Garland</h3></div>
+              <span class="price">$92</span>
+            </div>
+            <div class="swatches" aria-label="Available colors"><span class="swatch swatch--sage"></span><span class="swatch swatch--white"></span><span>2 palettes</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="custom-section" id="custom">
+      <div class="custom-section__image">
+        <img src="assets/hero-wedding.png" alt="Custom floral garland installation">
+      </div>
+      <div class="custom-section__content">
+        <p class="eyebrow">Your vision, in bloom</p>
+        <h2>Planning something unforgettable?</h2>
+        <p>Tell us the colors, traditions, and feeling you want to create. Our floral team will design a made-to-measure collection for your celebration.</p>
+        <ul>
+          <li><i data-lucide="check"></i> Personal flower and color consultation</li>
+          <li><i data-lucide="check"></i> Coordinated garlands, torans, and ceremony accents</li>
+          <li><i data-lucide="check"></i> Delivery planning anywhere in the continental USA</li>
+        </ul>
+        <button class="button button--dark planner-trigger">Begin your consultation <i data-lucide="arrow-right"></i></button>
+      </div>
+    </section>
+
+    <section class="story section-shell" id="story">
+      <div class="story__brand-art">
+        <img src="assets/beyond-bloomcrafts-logo.png" alt="Beyond BloomCrafts">
+      </div>
+      <div class="story__copy">
+        <p class="eyebrow">Rooted in tradition</p>
+        <h2>Old-world craft, made close to home.</h2>
+        <p>Beyond BloomCrafts was created to make the beauty of hand-tied floral garlands easier to share across America. Every order is prepared in small batches by florists who understand the meaning behind the flowers.</p>
+        <a class="text-link" href="#shop">Discover our craft <i data-lucide="arrow-right"></i></a>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div>
+        <p class="eyebrow">A little beauty in your inbox</p>
+        <h2>Seasonal flowers, celebration ideas, and early access.</h2>
+      </div>
+      <form class="newsletter-form">
+        <label class="sr-only" for="email">Email address</label>
+        <input id="email" type="email" placeholder="Email address" required>
+        <button type="submit" aria-label="Subscribe"><i data-lucide="arrow-right"></i></button>
+      </form>
+      <p class="newsletter-success" hidden>Welcome to Beyond BloomCrafts. We’re delighted you’re here.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <a class="brand brand--footer" href="#top">
+        <img class="brand__logo" src="assets/beyond-bloomcrafts-floral-mark-with-ornament.png" alt="">
+        <span class="brand__name">Beyond BloomCrafts</span>
+      </a>
+      <p>Handcrafted garlands for the moments that become memories.</p>
+      <div class="footer-contact">
+        <strong>Contact for orders</strong>
+        <a href="mailto:beyondbloomcrafts@gmail.com">beyondbloomcrafts@gmail.com</a>
+        <a href="tel:+19379008708">+1 (937) 900-8708</a>
+      </div>
+      <div class="social-links">
+        <a href="https://www.instagram.com/beyondbloomcrafts/" target="_blank" rel="noreferrer" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+        <a href="mailto:beyondbloomcrafts@gmail.com" aria-label="Email Beyond BloomCrafts"><i data-lucide="mail"></i></a>
+        <a href="tel:+19379008708" aria-label="Call Beyond BloomCrafts"><i data-lucide="phone"></i></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div><strong>Shop</strong><a href="#shop">Wedding garlands</a><a href="#shop">Celebration garlands</a><a href="#shop">Welcome garlands</a><a href="#custom">Custom orders</a></div>
+      <div><strong>Help</strong><a href="#">Freshness &amp; care</a><a href="#">Delivery</a><a href="#">FAQ</a><a href="mailto:beyondbloomcrafts@gmail.com">Contact</a></div>
+      <div><strong>Studio</strong><a href="#story">Our story</a><a href="#">Journal</a><a href="#">Reviews</a><a href="#">Florist partnerships</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Beyond BloomCrafts</span>
+      <span>Made with care in the USA</span>
+      <span><a href="#">Privacy</a> <a href="#">Terms</a></span>
+    </div>
+  </footer>
+
+  <div class="drawer-backdrop"></div>
+
+  <aside class="cart-drawer side-drawer" aria-hidden="true" aria-labelledby="cart-title">
+    <div class="drawer-header">
+      <div><p class="eyebrow">Your flowers</p><h2 id="cart-title">Shopping bag</h2></div>
+      <button class="icon-button drawer-close" aria-label="Close cart"><i data-lucide="x"></i></button>
+    </div>
+    <div class="cart-items"></div>
+    <div class="empty-cart">
+      <i data-lucide="flower-2"></i>
+      <h3>Your bag is waiting to bloom.</h3>
+      <p>Choose something beautiful for your next celebration.</p>
+      <button class="button button--dark drawer-shop">Explore garlands</button>
+    </div>
+    <div class="cart-summary" hidden>
+      <div><span>Subtotal</span><strong class="cart-subtotal">$0</strong></div>
+      <p>Freshness-packed shipping calculated at checkout.</p>
+      <button class="button button--dark checkout-button">Checkout <i data-lucide="arrow-right"></i></button>
+    </div>
+  </aside>
+
+  <aside class="mobile-menu side-drawer side-drawer--left" aria-hidden="true" aria-label="Mobile navigation">
+    <div class="drawer-header">
+      <a class="brand" href="#top"><img class="brand__logo" src="assets/beyond-bloomcrafts-floral-mark-with-ornament.png" alt=""><span class="brand__name">Beyond BloomCrafts</span></a>
+      <button class="icon-button drawer-close" aria-label="Close menu"><i data-lucide="x"></i></button>
+    </div>
+    <nav>
+      <a href="#shop">Shop <i data-lucide="arrow-up-right"></i></a>
+      <a href="#occasions">Occasions <i data-lucide="arrow-up-right"></i></a>
+      <a href="#custom">Custom Orders <i data-lucide="arrow-up-right"></i></a>
+      <a href="#story">Our Story <i data-lucide="arrow-up-right"></i></a>
+    </nav>
+    <div class="mobile-menu__note"><p>Planning a celebration?</p><button class="text-link planner-trigger">Talk with a florist <i data-lucide="arrow-right"></i></button></div>
+  </aside>
+
+  <div class="search-overlay" aria-hidden="true">
+    <button class="icon-button search-close" aria-label="Close search"><i data-lucide="x"></i></button>
+    <form class="search-form">
+      <label for="site-search">What are you celebrating?</label>
+      <div><i data-lucide="search"></i><input id="site-search" type="search" placeholder="Search garlands, weddings, marigolds..."><button type="submit">Search</button></div>
+      <p>Try “wedding”, “welcome”, or “marigold”</p>
+    </form>
+  </div>
+
+  <div class="modal consultation-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="consultation-title">
+    <div class="modal__panel">
+      <button class="icon-button modal-close" aria-label="Close consultation"><i data-lucide="x"></i></button>
+      <div class="consultation-intro">
+        <p class="eyebrow">Custom celebration flowers</p>
+        <h2 id="consultation-title">Tell us what you're dreaming of.</h2>
+        <p>Share a few details and our floral team will follow up within two business days.</p>
+      </div>
+      <form class="consultation-form">
+        <div class="form-row"><label>Name<input name="name" type="text" placeholder="Your name" required></label><label>Email<input name="email" type="email" placeholder="you@example.com" required></label></div>
+        <div class="form-row"><label>Occasion<select name="occasion" required><option value="">Choose an occasion</option><option>Wedding</option><option>Birthday</option><option>Baby shower</option><option>Welcome or honor</option><option>Other celebration</option></select></label><label>Event date<input name="date" type="date" required></label></div>
+        <label>Event ZIP code<input name="zip" type="text" inputmode="numeric" pattern="[0-9]{5}" placeholder="5-digit ZIP code" required></label>
+        <label>What can we create for you?<textarea name="details" rows="4" placeholder="Colors, quantity, traditions, flowers you love..."></textarea></label>
+        <button class="button button--dark" type="submit">Send my request <i data-lucide="arrow-right"></i></button>
+      </form>
+      <div class="consultation-success" hidden>
+        <i data-lucide="circle-check-big"></i>
+        <h3>Your celebration is on our calendar.</h3>
+        <p>We’ll be in touch within two business days to start bringing your flowers to life.</p>
+        <button class="button button--dark modal-close-success">Continue exploring</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
