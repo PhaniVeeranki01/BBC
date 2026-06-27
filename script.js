@@ -158,38 +158,38 @@ consultationModal.addEventListener("click", (event) => {
   if (event.target === consultationModal) closeOverlay(consultationModal);
 });
 
-document.querySelector(".consultation-form").addEventListener("submit", async (event) => {
+document.querySelector(".consultation-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.currentTarget;
-  const submitButton = form.querySelector('button[type="submit"]');
-  const originalButtonContent = submitButton.innerHTML;
-  submitButton.disabled = true;
-  submitButton.textContent = "Sending request...";
+  const values = new FormData(form);
+  if (values.get("_honey")) return;
 
-  try {
-    const response = await fetch(form.action, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(Object.fromEntries(new FormData(form).entries())),
-    });
+  const destination = new URL(form.action);
+  destination.searchParams.set("name", values.get("name"));
+  destination.searchParams.set("email", values.get("email"));
+  destination.searchParams.set("subject", "New Beyond BloomCrafts consultation request");
+  destination.searchParams.set("message", [
+    "Occasion: " + values.get("occasion"),
+    "Event date: " + values.get("date"),
+    "Event ZIP code: " + values.get("zip"),
+    "",
+    "Request details:",
+    values.get("details") || "No additional details provided.",
+  ].join("\n"));
+  destination.searchParams.set("next", "https://beyondbloomcrafts.com/#request-sent");
 
-    if (!response.ok) throw new Error("Request could not be sent");
-
-    form.hidden = true;
-    document.querySelector(".consultation-intro").hidden = true;
-    document.querySelector(".consultation-success").hidden = false;
-    form.reset();
-    refreshIcons();
-  } catch (error) {
-    showToast("We couldn't send your request. Please email beyondbloomcrafts@gmail.com.");
-    submitButton.disabled = false;
-    submitButton.innerHTML = originalButtonContent;
-    refreshIcons();
-  }
+  form.querySelector('button[type="submit"]').textContent = "Opening secure email form...";
+  window.location.assign(destination.toString());
 });
+
+if (window.location.hash === "#request-sent") {
+  document.querySelector(".consultation-form").hidden = true;
+  document.querySelector(".consultation-intro").hidden = true;
+  document.querySelector(".consultation-success").hidden = false;
+  openOverlay(consultationModal, ".modal-close-success");
+  window.history.replaceState(null, "", window.location.pathname);
+  refreshIcons();
+}
 
 document.querySelectorAll(".filter-tab").forEach((tab) => {
   tab.addEventListener("click", () => setFilter(tab.dataset.filter));
