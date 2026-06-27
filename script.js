@@ -158,12 +158,37 @@ consultationModal.addEventListener("click", (event) => {
   if (event.target === consultationModal) closeOverlay(consultationModal);
 });
 
-document.querySelector(".consultation-form").addEventListener("submit", (event) => {
+document.querySelector(".consultation-form").addEventListener("submit", async (event) => {
   event.preventDefault();
-  event.currentTarget.hidden = true;
-  document.querySelector(".consultation-intro").hidden = true;
-  document.querySelector(".consultation-success").hidden = false;
-  refreshIcons();
+  const form = event.currentTarget;
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButtonContent = submitButton.innerHTML;
+  submitButton.disabled = true;
+  submitButton.textContent = "Sending request...";
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(Object.fromEntries(new FormData(form).entries())),
+    });
+
+    if (!response.ok) throw new Error("Request could not be sent");
+
+    form.hidden = true;
+    document.querySelector(".consultation-intro").hidden = true;
+    document.querySelector(".consultation-success").hidden = false;
+    form.reset();
+    refreshIcons();
+  } catch (error) {
+    showToast("We couldn't send your request. Please email beyondbloomcrafts@gmail.com.");
+    submitButton.disabled = false;
+    submitButton.innerHTML = originalButtonContent;
+    refreshIcons();
+  }
 });
 
 document.querySelectorAll(".filter-tab").forEach((tab) => {

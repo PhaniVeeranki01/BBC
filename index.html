@@ -445,7 +445,10 @@
         <h2 id="consultation-title">Tell us what you're dreaming of.</h2>
         <p>Share a few details and our floral team will follow up within two business days.</p>
       </div>
-      <form class="consultation-form">
+      <form class="consultation-form" action="https://formsubmit.co/ajax/beyondbloomcrafts@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Beyond BloomCrafts consultation request">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="form-honeypot" aria-hidden="true">
         <div class="form-row"><label>Name<input name="name" type="text" placeholder="Your name" required></label><label>Email<input name="email" type="email" placeholder="you@example.com" required></label></div>
         <div class="form-row"><label>Occasion<select name="occasion" required><option value="">Choose an occasion</option><option>Wedding</option><option>Birthday</option><option>Baby shower</option><option>Welcome or honor</option><option>Other celebration</option></select></label><label>Event date<input name="date" type="date" required></label></div>
         <label>Event ZIP code<input name="zip" type="text" inputmode="numeric" pattern="[0-9]{5}" placeholder="5-digit ZIP code" required></label>

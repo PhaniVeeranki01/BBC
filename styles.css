@@ -1848,3 +1848,8 @@ h1 {
     animation-iteration-count: 1 !important;
   }
 }
+
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+}
