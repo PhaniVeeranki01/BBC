@@ -630,6 +630,14 @@ h1 {
   background: #e8dfd8;
 }
 
+.product-card__media--real {
+  background: #eee8e4;
+}
+
+.product-card__media--real img {
+  object-position: center;
+}
+
 .product-card__media img {
   width: 100%;
   height: 100%;
