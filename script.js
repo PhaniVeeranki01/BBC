@@ -169,6 +169,7 @@ document.querySelector(".consultation-form").addEventListener("submit", (event) 
   destination.searchParams.set("email", values.get("email"));
   destination.searchParams.set("subject", "New Beyond BloomCrafts consultation request");
   destination.searchParams.set("message", [
+    "Phone number: " + values.get("phone"),
     "Occasion: " + values.get("occasion"),
     "Event date: " + values.get("date"),
     "Event ZIP code: " + values.get("zip"),
