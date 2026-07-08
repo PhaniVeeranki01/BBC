@@ -9,6 +9,9 @@ const cartDrawer = document.querySelector(".cart-drawer");
 const mobileMenu = document.querySelector(".mobile-menu");
 const searchOverlay = document.querySelector(".search-overlay");
 const consultationModal = document.querySelector(".consultation-modal");
+const imageModal = document.querySelector(".image-modal");
+const imageModalImage = document.querySelector(".image-modal__image");
+const imageModalCaption = document.querySelector(".image-modal__caption");
 const toast = document.querySelector(".toast");
 
 function refreshIcons() {
@@ -56,6 +59,12 @@ function closeOverlay(overlay) {
   overlay.classList.remove("open");
   overlay.setAttribute("aria-hidden", "true");
   lockPage(false);
+}
+function openImageModal(image, caption) {
+  imageModalImage.src = image.currentSrc || image.src;
+  imageModalImage.alt = image.alt || caption || "Product image";
+  imageModalCaption.textContent = caption || image.alt || "Beyond BloomCrafts garland";
+  openOverlay(imageModal, ".image-modal__close");
 }
 
 function updateCount(selector, count) {
@@ -158,6 +167,11 @@ consultationModal.addEventListener("click", (event) => {
   if (event.target === consultationModal) closeOverlay(consultationModal);
 });
 
+document.querySelector(".image-modal__close").addEventListener("click", () => closeOverlay(imageModal));
+imageModal.addEventListener("click", (event) => {
+  if (event.target === imageModal) closeOverlay(imageModal);
+});
+
 document.querySelector(".consultation-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.currentTarget;
@@ -202,6 +216,20 @@ document.querySelectorAll(".filter-jump").forEach((card) => {
     document.querySelector("#shop").scrollIntoView({ behavior: "smooth" });
   });
 });
+document.querySelectorAll(".product-card__media img").forEach((image) => {
+  const card = image.closest(".product-card");
+  const caption = card?.querySelector("h3")?.textContent || image.alt;
+  image.tabIndex = 0;
+  image.setAttribute("role", "button");
+  image.setAttribute("aria-label", `View ${caption} larger`);
+  image.addEventListener("click", () => openImageModal(image, caption));
+  image.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    openImageModal(image, caption);
+  });
+});
+
 
 document.querySelectorAll(".quick-add").forEach((button) => {
   button.addEventListener("click", () => {
@@ -254,6 +282,7 @@ document.addEventListener("keydown", (event) => {
   closeDrawers();
   closeOverlay(searchOverlay);
   closeOverlay(consultationModal);
+  closeOverlay(imageModal);
 });
 
 window.addEventListener("load", refreshIcons);

@@ -645,6 +645,10 @@ h1 {
   transition: transform 600ms ease;
 }
 
+.product-card__media img[role="button"] {
+  cursor: zoom-in;
+}
+
 .product-card:hover .product-card__media img {
   transform: scale(1.025);
 }
@@ -792,6 +796,7 @@ h1 {
 .swatch--yellow { background: #f4bd2b; }
 .swatch--green { background: #49724b; }
 .swatch--sage { background: #97ad94; }
+.swatch--purple { background: #8a3ca0; }
 
 .custom-section {
   min-height: 670px;
@@ -1344,6 +1349,45 @@ h1 {
   top: 16px;
 }
 
+.image-modal {
+  z-index: 75;
+  padding: clamp(16px, 3vw, 34px);
+  overflow: hidden;
+  background: rgba(17, 35, 29, 0.9);
+}
+
+.image-modal__close {
+  position: fixed;
+  right: clamp(14px, 3vw, 30px);
+  top: clamp(14px, 3vw, 30px);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.image-modal__frame {
+  width: min(940px, 100%);
+  max-height: calc(100dvh - 52px);
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.image-modal__image {
+  width: 100%;
+  max-height: calc(100dvh - 106px);
+  object-fit: contain;
+  background: #eee8e0;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.image-modal__caption {
+  color: rgba(255, 255, 255, 0.86);
+  font-family: var(--serif);
+  font-size: clamp(18px, 3vw, 28px);
+  text-align: center;
+}
+
 .consultation-intro h2 {
   margin: 0;
   font-size: clamp(40px, 5vw, 58px);
@@ -1814,6 +1858,14 @@ h1 {
     max-height: 100dvh;
     min-height: 100dvh;
     padding: 55px 22px 30px;
+  }
+
+  .image-modal {
+    padding: 14px;
+  }
+
+  .image-modal__image {
+    max-height: calc(100dvh - 86px);
   }
 
   .consultation-intro h2 {
