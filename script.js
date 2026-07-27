@@ -63,7 +63,7 @@ function closeOverlay(overlay) {
 function openImageModal(image, caption) {
   imageModalImage.src = image.currentSrc || image.src;
   imageModalImage.alt = image.alt || caption || "Product image";
-  imageModalCaption.textContent = caption || image.alt || "Beyond BloomCrafts garland";
+  imageModalCaption.textContent = caption || image.alt || "Beyond Bloom Crafts garland";
   openOverlay(imageModal, ".image-modal__close");
 }
 
@@ -172,29 +172,15 @@ imageModal.addEventListener("click", (event) => {
   if (event.target === imageModal) closeOverlay(imageModal);
 });
 
-document.querySelector(".consultation-form").addEventListener("submit", (event) => {
-  event.preventDefault();
+const consultationForm = document.querySelector(".consultation-form");
+consultationForm.addEventListener("submit", (event) => {
   const form = event.currentTarget;
-  const values = new FormData(form);
-  if (values.get("_honey")) return;
+  if (!form.checkValidity()) return;
 
-  const destination = new URL(form.action);
-  destination.searchParams.set("name", values.get("name"));
-  destination.searchParams.set("email", values.get("email"));
-  destination.searchParams.set("subject", "New Beyond BloomCrafts consultation request");
-  destination.searchParams.set("message", [
-    "Phone number: " + values.get("phone"),
-    "Occasion: " + values.get("occasion"),
-    "Event date: " + values.get("date"),
-    "Event ZIP code: " + values.get("zip"),
-    "",
-    "Request details:",
-    values.get("details") || "No additional details provided.",
-  ].join("\n"));
-  destination.searchParams.set("next", "https://beyondbloomcrafts.com/#request-sent");
-
-  form.querySelector('button[type="submit"]').textContent = "Opening secure email form...";
-  window.location.assign(destination.toString());
+  const submitButton = form.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  submitButton.innerHTML = 'Sending request <i data-lucide="arrow-right"></i>';
+  refreshIcons();
 });
 
 if (window.location.hash === "#request-sent") {
